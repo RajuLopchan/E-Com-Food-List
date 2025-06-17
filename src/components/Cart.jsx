@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromCart } from '../store/cartSlice';
 import ConfirmPopup from './ConfirmPopup';
-import { useState } from 'react'; // Import useState for popup state
+import { useState, useEffect } from 'react';
 
 function Cart() {
   const dispatch = useDispatch();
@@ -12,11 +12,21 @@ function Cart() {
     0
   );
 
-  //State for controlling popup visibility
   const [showPopup, setShowPopup] = useState(false);
 
+  // Scroll locking functionality
+  useEffect(() => {
+    if (showPopup) {
+      // This prevents scrolling of the background content
+      document.body.style.overflow = 'hidden';
+    } else {
+      // This restores scrolling when popup closes
+      document.body.style.overflow = 'unset';
+    }
+  }, [showPopup]);
+
   return (
-    <div className="">
+    <div className="relative">
       <div className="bg-white p-4 rounded-lg shadow-md w-full">
         <h2 className="text-[18px] font-[700] mb-4 text-red-400">
           Your Cart ({totalItems})
@@ -77,7 +87,6 @@ function Cart() {
                   This is a carbon-neutral delivery
                 </p>
               </div>
-              {/* Added onClick handler to show popup */}
               <button
                 onClick={() => setShowPopup(true)}
                 className="w-full bg-red-800 text-white py-3 rounded-[20px] text-sm font-medium cursor-pointer"
@@ -89,13 +98,15 @@ function Cart() {
         )}
       </div>
 
-      {/*Conditionally render ConfirmPopup */}
+      {/* popup logic */}
       {showPopup && (
-        <ConfirmPopup
-          cartItems={cartItems}
-          totalPrice={totalPrice}
-          onClose={() => setShowPopup(false)}
-        />
+        <div className="fixed inset-0 flex items-center justify-center">
+          <ConfirmPopup
+            cartItems={cartItems}
+            totalPrice={totalPrice}
+            onClose={() => setShowPopup(false)}
+          />
+        </div>
       )}
     </div>
   );

@@ -4,7 +4,7 @@ function ConfirmPopup({ cartItems, totalPrice, onClose }) {
   //  onClose prop
   return (
     <div className="fixed inset-0 flex items-center justify-center p-5">
-      <div className="bg-white rounded-md w-[440px] p-5">
+      <div className="bg-white rounded-md w-[400px] p-5">
         <div className="">
           <div>
             <img
