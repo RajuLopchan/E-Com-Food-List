@@ -17,10 +17,8 @@ function Cart() {
   // Scroll locking functionality
   useEffect(() => {
     if (showPopup) {
-      // This prevents scrolling of the background content
       document.body.style.overflow = 'hidden';
     } else {
-      // This restores scrolling when popup closes
       document.body.style.overflow = 'unset';
     }
   }, [showPopup]);

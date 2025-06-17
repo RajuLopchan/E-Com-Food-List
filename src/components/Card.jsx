@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, removeFromCart } from '../store/cartSlice';
+import { addToCart, decreaseQuantity } from '../store/cartSlice';
 
 function Card({ image, category, name, price }) {
   const dispatch = useDispatch();
@@ -11,8 +11,8 @@ function Card({ image, category, name, price }) {
     dispatch(addToCart({ image, category, name, price }));
   };
 
-  const handleRemoveFromCart = () => {
-    dispatch(removeFromCart(name));
+  const handleDecreaseQuantity = () => {
+    dispatch(decreaseQuantity(name));
   };
 
   return (
@@ -35,7 +35,7 @@ function Card({ image, category, name, price }) {
             {cartItem ? (
               <div className="flex items-center gap-4 bg-orange-700 px-4 py-1.5 rounded-2xl relative bottom-15 right-7 ">
                 <button
-                  onClick={handleRemoveFromCart}
+                  onClick={handleDecreaseQuantity}
                   className="w-4 h-4 rounded-full border flex items-center justify-center text-white hover:bg-white hover:text-red-500 hover:cursor-pointer"
                 >
                   <span className="relative bottom-0.5 ">-</span>
@@ -51,7 +51,6 @@ function Card({ image, category, name, price }) {
                 </button>
               </div>
             ) : (
-              // Original "Add to Cart" button (unchanged)
               <button
                 onClick={handleAddToCart}
                 className="bg-gray-100 px-2 py-1 rounded-2xl text-[0.7rem] md:text-[0.6rem] lg:text-[0.7rem] text-bold font-[600] cursor-pointer flex gap-1 items-center relative bottom-15 right-7 border-1 border-gray-300 hover:bg-gray-300"
