@@ -24,8 +24,8 @@ function Cart() {
   }, [showPopup]);
 
   return (
-    <div className="relative">
-      <div className="bg-white p-4 rounded-lg shadow-md w-full">
+    <div className={`relative`}>
+      <div className="bg-white p-4 rounded-lg shadow-md w-full ">
         <h2 className="text-[18px] font-[700] mb-4 text-red-400">
           Your Cart ({totalItems})
         </h2>
@@ -96,14 +96,20 @@ function Cart() {
         )}
       </div>
 
-      {/* popup logic */}
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center">
-          <ConfirmPopup
-            cartItems={cartItems}
-            totalPrice={totalPrice}
-            onClose={() => setShowPopup(false)}
-          />
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div
+            className="fixed inset-0 backdrop-blur-xs"
+            onClick={() => setShowPopup(false)}
+          ></div>
+
+          <div>
+            <ConfirmPopup
+              cartItems={cartItems}
+              totalPrice={totalPrice}
+              onClose={() => setShowPopup(false)}
+            />
+          </div>
         </div>
       )}
     </div>

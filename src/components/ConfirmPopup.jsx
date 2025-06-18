@@ -29,7 +29,7 @@ function ConfirmPopup({ cartItems, totalPrice, onClose }) {
             >
               <div className="flex items-center gap-3">
                 <img
-                  src=""
+                  src={item.image}
                   alt=""
                   className="w-10 h-10 rounded-lg object-cover"
                 />
