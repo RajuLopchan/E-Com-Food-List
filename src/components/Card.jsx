@@ -16,7 +16,7 @@ function Card({ image, category, name, price }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md flex flex-col w-full">
+    <div className=" rounded-lg flex flex-col w-full">
       <div>
         <img src={image} alt={name} className="w-full h-full object-cover" />
       </div>

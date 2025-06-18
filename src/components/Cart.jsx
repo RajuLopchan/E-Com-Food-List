@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart } from '../store/cartSlice';
+import { removeFromCart, emptyCart } from '../store/cartSlice';
 import ConfirmPopup from './ConfirmPopup';
 import { useState, useEffect } from 'react';
 
@@ -24,14 +24,14 @@ function Cart() {
   }, [showPopup]);
 
   return (
-    <div className={`relative`}>
-      <div className="bg-white p-4 rounded-lg shadow-md w-full ">
-        <h2 className="text-[18px] font-[700] mb-4 text-red-400">
+    <div className="flex justify-center items-center">
+      <div className="bg-rose-50 p-4 rounded-lg w-[88%] h-[70%] ">
+        <h2 className="text-[18px] font-[700]  text-red-400 mb-3">
           Your Cart ({totalItems})
         </h2>
 
         {cartItems.length === 0 ? (
-          <div className="flex flex-col items-center gap-2 py-8">
+          <div className="flex flex-col items-center gap-2">
             <img
               className="w-[50%]"
               src="/assets/images/illustration-empty-cart.svg"
@@ -98,13 +98,14 @@ function Cart() {
 
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center">
-          <div className="fixed inset-0 backdrop-blur-xs"></div>
-
           <div>
             <ConfirmPopup
               cartItems={cartItems}
               totalPrice={totalPrice}
-              onClose={() => setShowPopup(false)}
+              onStartNewOrder={() => {
+                dispatch(emptyCart());
+                setShowPopup(false);
+              }}
             />
           </div>
         </div>
