@@ -97,11 +97,8 @@ function Cart() {
       </div>
 
       {showPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div
-            className="fixed inset-0 backdrop-blur-xs"
-            onClick={() => setShowPopup(false)}
-          ></div>
+        <div className="fixed inset-0 flex items-center justify-center">
+          <div className="fixed inset-0 backdrop-blur-xs"></div>
 
           <div>
             <ConfirmPopup

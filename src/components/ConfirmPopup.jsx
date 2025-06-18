@@ -1,7 +1,6 @@
 import React from 'react';
 
 function ConfirmPopup({ cartItems, totalPrice, onClose }) {
-  //  onClose prop
   return (
     <div className="fixed inset-0 flex items-center justify-center p-5">
       <div className="bg-white rounded-md w-[380px] p-5">
@@ -55,7 +54,6 @@ function ConfirmPopup({ cartItems, totalPrice, onClose }) {
           </span>
         </div>
 
-        {/* Added onClick handler to close popup and start new order */}
         <button
           onClick={onClose}
           className="w-full mt-6 bg-orange-700 text-white py-2 rounded-[25px] text-[10px] font-[400] hover:bg-orange-800 transition"
