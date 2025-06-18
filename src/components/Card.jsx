@@ -16,9 +16,9 @@ function Card({ image, category, name, price }) {
   };
 
   return (
-    <div className=" rounded-lg flex flex-col w-full">
+    <div className=" rounded-lg flex flex-col ">
       <div>
-        <img src={image} alt={name} className="w-full h-full object-cover" />
+        <img src={image} alt={name} className="w-full h-full object-cover rounded-xl" />
       </div>
       <div className="pt-4 px-4 flex flex-col">
         <p className="text-[10px] md:text-[8px] lg:text-[10px] text-gray-500 line-clamp-1">
@@ -33,7 +33,7 @@ function Card({ image, category, name, price }) {
           </p>
           <div className="flex">
             {cartItem ? (
-              <div className="flex items-center gap-4 bg-orange-700 px-4 py-1.5 rounded-2xl relative bottom-15 right-7 ">
+              <div className="flex items-center gap-4 bg-orange-700 px-4 py-1.5 rounded-2xl relative transform -translate-1/2 bottom-12 right-11 lg:bottom-12 lg:left-5 ">
                 <button
                   onClick={handleDecreaseQuantity}
                   className="w-4 h-4 rounded-full border flex items-center justify-center text-white hover:bg-white hover:text-red-500 hover:cursor-pointer"
@@ -53,7 +53,7 @@ function Card({ image, category, name, price }) {
             ) : (
               <button
                 onClick={handleAddToCart}
-                className="bg-gray-100 px-2 py-1 rounded-2xl text-[0.7rem] md:text-[0.6rem] lg:text-[0.7rem] text-bold font-[600] cursor-pointer flex gap-1 items-center relative bottom-15 right-7 border-1 border-gray-300 hover:bg-gray-300"
+                className="bg-gray-100 px-2 py-1 rounded-2xl text-[0.7rem] md:text-[0.6rem] lg:text-[0.7rem] text-bold font-[600] cursor-pointer flex gap-1 items-center relative transform -translate-1/2 bottom-12 right-11 lg:bottom-12 lg:left-5 border-1 border-gray-300 hover:bg-gray-300"
               >
                 <img
                   className="w-[15%]"

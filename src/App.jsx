@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-5 justify-center pt-6 px-4">
-      <div className="flex flex-col w-full lg:w-[50%]">
+      <div className="flex flex-col w-full lg:w-[53%]">
         <h1 className="text-2xl font-bold mb-4 pl-3">Desserts</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-3">
           {data.map((item, index) => (

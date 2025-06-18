@@ -3,7 +3,7 @@ import React from 'react';
 function ConfirmPopup({ cartItems, totalPrice, onStartNewOrder }) {
   return (
     <div className="fixed inset-0 flex items-center justify-center p-5 bg-black/40 backdrop-blur-xs">
-      <div className="bg-white max-h-[88vh] overflow-y-auto  w-76 p-5 border-y border-l  border-gray-400  rounded-xl">
+      <div className="bg-white max-h-[88vh] overflow-y-auto  w-86 lg:w-80  p-5 border-y border-l  border-gray-400  rounded-xl">
         <div>
           <div>
             <img

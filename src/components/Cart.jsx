@@ -24,7 +24,7 @@ function Cart() {
   }, [showPopup]);
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center mb-10">
       <div className="bg-rose-50 p-4 rounded-lg w-[88%] h-[70%] ">
         <h2 className="text-[18px] font-[700]  text-red-400 mb-3">
           Your Cart ({totalItems})
